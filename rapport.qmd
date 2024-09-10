@@ -1,0 +1,29 @@
+---
+title: "Rapport"
+author: "Gruppe 1"
+format: pdf
+editor_options: 
+  chunk_output_type: console
+  bibliography: referanser.bib
+---
+
+
+#Oppgave 1: Reliability and tools for reproducible data science
+
+
+#introduksjon
+
+Vi har gjort en Vo2 max test på 4 forskjellige dager hvor formålet var å se på hvor reliable dataen vi får er. Vi har forsøkt å standardisere noen ting som trening, mat-inntak dagen før. I tilegg har vi sett på laktat rett etter avsluttet test.
+
+# Protokoll
+
+skriv noe 
+
+# Resultater
+
+skriv noe, legg inn graf osv
+
+
+
+
+
