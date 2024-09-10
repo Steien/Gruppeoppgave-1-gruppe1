@@ -15,11 +15,29 @@ Dette prosjektet er en del av kurset IDR4000-1 24H Kvantitativ metode og statist
 - `docs/`: Quarto-dokumenter for rapportskriving
 - `output/`: Genererte figurer og tabeller
 
-## Hvordan bruke dette repositoriet
-1. Klon repositoriet til din lokale maskin
-2. Åpne RStudio-prosjektet
-3. Installer nødvendige pakker (se `scripts/install_packages.R`)
-4. Kjør analysene i rekkefølgen spesifisert i `docs/hovedrapport.qmd`
+## Bruk av referanser
+
+Vi bruker en bibliografi-fil (referanser.bib) for å håndtere referanser i prosjektet. For å sitere en kilde i Quarto-dokumentet:
+
+1. Åpne referanser.bib-filen for å se nøklene til hver referanse.
+2. I Quarto-dokumentet, bruk [@nøkkel] for å sitere en kilde. For eksempel:
+
+   - [@halperin2015] for Halperin et al. (2015)
+   - [@hopkins2000] for Hopkins (2000)
+   - [@tanner2012] for Tanner & Gore (2012)
+
+3. For å sitere flere kilder sammen, bruk [@nøkkel1; @nøkkel2].
+
+4. For å nevne forfatteren i teksten, bruk @nøkkel. For eksempel:
+   "Som nevnt av @halperin2015, er det viktig å..."
+
+Quarto vil automatisk generere en referanseliste i slutten av dokumentet basert på de kildene du har sitert.
+
+Husk å inkludere denne linjen i YAML-headeren til Quarto-dokumentet:
+
+```yaml
+bibliography: referanser.bib
+
 
 
 ## Kontakt
