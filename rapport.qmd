@@ -1,19 +1,23 @@
 ---
 title: "Rapport"
 author: "Gruppe 1"
-format: pdf
+format: 
+  pdf:
+    bibliography: referanser.bib
 editor_options: 
   chunk_output_type: console
-  bibliography: referanser.bib
 ---
 
 
 #Oppgave 1: Reliability and tools for reproducible data science
 
 
-#introduksjon
+## Introduksjon
 
-Vi har gjort en Vo2 max test på 4 forskjellige dager hvor formålet var å se på hvor reliable dataen vi får er. Vi har forsøkt å standardisere noen ting som trening, mat-inntak dagen før. I tilegg har vi sett på laktat rett etter avsluttet test.
+I vår studie har vi gjennomført VO2 max-tester over fire forskjellige dager for å vurdere påliteligheten av de innsamlede dataene. Formålet med disse testene var å undersøke hvor konsistente resultatene er under kontrollerte forhold. For å oppnå dette har vi forsøkt å standardisere flere variabler, inkludert treningsnivå og matinntak dagen før testene. Ifølge @halperin2015 er det avgjørende å bruke standardiserte protokoller for å oppnå pålitelige resultater i fysiologiske tester. I tillegg har vi målt laktatnivåer umiddelbart etter avslutningen av hver test for å vurdere den fysiologiske responsen. Tidligere forskning har vist at laktatnivåer kan gi verdifull informasjon om anaerob kapasitet og treningsintensitet, noe som er viktig for å forstå atletisk ytelse (@hopkins2000; @tanner2012). Ved å kontrollere for disse variablene håper vi å oppnå en høy grad av reproduserbarhet i våre resultater.
+
+
+
 
 # Protokoll
 
