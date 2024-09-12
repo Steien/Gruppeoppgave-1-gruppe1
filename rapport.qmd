@@ -1,15 +1,14 @@
 ---
-title: "Rapport"
-author: "Gruppe 1"
-format: 
-  pdf:
-    bibliography: referanser.bib
+title: "Opggave 1: Reliabilitet og verktøy for reproduserbar vitenskapelig data"
+author: "Gruppe 1; Trond Steien, Andrine Juvodden, Simon T. H. Kristiansen, Anders Nybakk"
+format: html
+bibliography: referanser.bib
 editor_options: 
-  chunk_output_type: console
+chunk_output_type: console
 ---
 
 
-#Oppgave 1: Reliability and tools for reproducible data science
+## Oppgave 1: Reliability and tools for reproducible data science
 
 
 ## Introduksjon
@@ -19,15 +18,19 @@ I vår studie har vi gjennomført VO2 max-tester over fire forskjellige dager fo
 
 
 
-# Protokoll
+## Protokoll
 
 skriv noe 
 
-# Resultater
+## Resultater
 
 skriv noe, legg inn graf osv
 
+## Avvik og feilkilder
 
+temp, luftfukt, tidspunkt, mat, unøyaktiget i framgangsmåte. laktat, dagsform, heiing osv.
+
+## Referanseliste
 
 
 
