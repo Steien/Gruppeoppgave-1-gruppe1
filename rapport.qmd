@@ -24,17 +24,75 @@ skriv noe
 
 ## Resultater
 
-skriv noe, legg inn graf osv
+## mye teknisk feil, fikk ikke til å fungere, brukt AI til å hjelpe
 
 ```{r}
-install.packages("readxl")
+# Last inn nødvendige biblioteker
 library(readxl)
+library(dplyr)
+library(tidyverse)
 
-filsti <- data
+# Definerer variablene som skal brukes
+vars <- c("id", "timepoint", "temperature", "humidity", 
+          "sex", "age", "height", "weight", "w.max", 
+          "vo2.max", "vco2.max", "rer.max", "ve.max", 
+          "bf.max", "hr.max", "la.max", 
+          "borg.max")
 
-datasett <- read_excel(filsti)
+# Leser inn dataene fra Excel-filer og kombinerer dem
+dat <- bind_rows(
+  tryCatch({
+    read_excel("data/g1.xlsx", sheet = "data_excel", na = "na") %>%
+      select(all_of(vars)) %>%
+      mutate(group = "G1", 
+             id = paste0(group, "_", id))
+  }, error = function(e) {
+    message("Feil ved lesing av g1.xlsx: ", e$message)
+    NULL
+  }),
+  
+  tryCatch({
+    read_excel("data/g2.xlsx", na = "na") %>%
+      select(all_of(vars)) %>%
+      mutate(group = "G2", 
+             id = paste0(group, "_", id))
+  }, error = function(e) {
+    message("Feil ved lesing av g2.xlsx: ", e$message)
+    NULL
+  }),
+  
+  tryCatch({
+    read_excel("data/g3.xlsx") %>%
+      select(all_of(vars)) %>%
+      mutate(timepoint = paste0("t", timepoint), 
+             group = "G3", 
+             id = paste0(group, "_", id))
+  }, error = function(e) {
+    message("Feil ved lesing av g3.xlsx: ", e$message)
+    NULL
+  }),
+  
+  tryCatch({
+    read_excel("data/g4.xlsx") %>%
+      select(all_of(vars)) %>%
+      mutate(group = "G4", 
+             id = paste0(group, "_", id))
+  }, error = function(e) {
+    message("Feil ved lesing av g4.xlsx: ", e$message)
+    NULL
+  })
+)
 
-head(datasett)
+# Viser de første radene av det samlede datasettet
+if (!is.null(dat)) {
+  print(head(dat))
+} else {
+  message("Ingen data ble lastet inn.")
+}
+```
+
+### Pivoting and calculating typical error
+
 
 ```
 
