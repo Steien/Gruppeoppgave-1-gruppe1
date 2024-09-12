@@ -41,64 +41,81 @@ vars <- c("id", "timepoint", "temperature", "humidity",
 
 # Leser inn dataene fra Excel-filer og kombinerer dem
 dat <- bind_rows(
-  tryCatch({
-    read_excel("data/g1.xlsx", sheet = "data_excel", na = "na") %>%
-      select(all_of(vars)) %>%
-      mutate(group = "G1", 
-             id = paste0(group, "_", id))
-  }, error = function(e) {
-    message("Feil ved lesing av g1.xlsx: ", e$message)
-    NULL
-  }),
-  
-  tryCatch({
-    read_excel("data/g2.xlsx", na = "na") %>%
-      select(all_of(vars)) %>%
-      mutate(group = "G2", 
-             id = paste0(group, "_", id))
-  }, error = function(e) {
-    message("Feil ved lesing av g2.xlsx: ", e$message)
-    NULL
-  }),
-  
-  tryCatch({
-    read_excel("data/g3.xlsx") %>%
-      select(all_of(vars)) %>%
-      mutate(timepoint = paste0("t", timepoint), 
-             group = "G3", 
-             id = paste0(group, "_", id))
-  }, error = function(e) {
-    message("Feil ved lesing av g3.xlsx: ", e$message)
-    NULL
-  }),
-  
-  tryCatch({
-    read_excel("data/g4.xlsx") %>%
-      select(all_of(vars)) %>%
-      mutate(group = "G4", 
-             id = paste0(group, "_", id))
-  }, error = function(e) {
-    message("Feil ved lesing av g4.xlsx: ", e$message)
-    NULL
-  })
-)
+read_excel("data/g1.xlsx", sheet = "data_excel", na = "na") %>%
+  select(all_of(vars)) %>%
+  mutate(group = "G1", 
+         id = paste0(group, "_", id)) ,
+
+read_excel("data/g2.xlsx", na = "na") %>%
+   select(all_of(vars)) %>%
+  mutate(group = "G2", 
+         id = paste0(group, "_", id)) ,
+
+read_excel("data/g3.xlsx") %>%
+   select(all_of(vars)) %>%
+  mutate(timepoint = paste0("t", timepoint), 
+         group = "G3", 
+         id = paste0(group, "_", id)) ,
+
+read_excel("data/g4.xlsx") %>%
+   select(all_of(vars)) %>%
+  mutate(group = "G4", 
+         id = paste0(group, "_", id)) )
+
 
 # Viser de første radene av det samlede datasettet
-if (!is.null(dat)) {
-  print(head(dat))
-} else {
-  message("Ingen data ble lastet inn.")
-}
+
+
+
+
+
 ```
 
 ### Pivoting and calculating typical error
 
 
-```
 
 ## Avvik og feilkilder
 
-temp, luftfukt, tidspunkt, mat, unøyaktiget i framgangsmåte. laktat, dagsform, heiing osv.
+### Standardisering
+
+**Livsstil**
+
+I forkant av perioden ble vi enig om å forsøke å standardisere trening og matinntak i forkant av testene. Dette visste vi med en gang kunne bli utfordrende ettersom deltakerne har egne treningsopplegg som de følger. Noen på gruppa hadde for eksempel forskjellige treningsbolker fra t1 og t2 til t3 og t4. I tillegg til dette  var t1 og t2 satt opp to dager etter hverandre, mens det var en hviledag mellom t3 og t4. Id1 gjennomførte også en test mandagen før t1, så i den første testuken ble id1 testet tre ganger.
+
+Mat og drikke i forkant av testen var også vanskelig å standardisere da deltakerne også måtte ta hensyn til andre familimedlemmer ol. Underveis i testen var ikke dette en utfordring ettersom testen var så kort var det ikke nødvendig med inntak av mat eller drikke underveis.
+
+Selv om vi ønsket å standardisere søvn så vi at dette ville være vanskelig å gjennomføre. Vi oppfordret delttakerne til å forsøke å få like mye søvn hver gang ved å legge seg til samme tid, men ettersom vi ikke kunne sikre lik søvnkvalitet valgte vi å ikke ha så mye foksu på dette.
+
+Dagsform vil også påvirke resultatene våre. Travle dager og uvant livsstil i forkant av testen kan påvirke resultatet selv om trening, mat og drikke er standardisert. Dagsform vil også påvirke utøverens evne til å presse seg.
+
+**Temperatur og luftfuktighet^**
+
+Alle testene vi på gruppe 1 utførte var på det samme laboratoriumet - Laboratorium 2. Her finnes det flere tiltak som skal sikre at temperaturen og luftfuktigheten er relativ lik hele tiden, som klimaanlegg og luftfukter. Likevel ble det noe variasjon i temperatur og luftfuktighet. temperaturen varierte fra nn-nn grader, og luftfuktigheten varierte fra nn-nn %.Det skal nevnes at luftfuktigheten var ganske stabil på t1-t3, og at det var på t4 at luftfuktigheten var veldig lav. 
+
+**tidspunkt**
+
+Tidspunkt skulle være standardisert. Vi skulle ha laboratoriumet fra kl 09:15-12:00 på alle testene, og vi fulgte samme rekkefølge hver gang. Det oppstod likevel noen problemer. På t3 var laboratoriumet dobbeltbooket så det ble kortere tid til å gjennomføre testene, som førte til noe stress. På t4 var laboratoriumet også dobbeltbooket så testen ble utsatt til kl 13.00. Også her hadde vi fått mindre tid enn det som først var oppsatt, men klarte å gjennomføre alle testene med god margin. 
+
+Vi klarta altså bare å standardisere tidspunkt skikkelig på t1 og t2. Resultatene på t3 og t4 kan derfor bli noe påvirket av dette.
+
+
+**Unøyaktiget i framgangsmåte**. 
+
+Vi har laget et protokoll med framgangsmåte, og har forsøkt å følge den hver gang. Likevel vil det alltid skje unntak og menneskelige feil som kan påvirke reslutatet.
+
+I protokollen står det at vi skal ta laktatprøve 1 min etter at testen er ferdig. Dette har vi forsøkt å gjøre, men i noen tilfeller måtte vi forkaste den første testen fordi røret kom borti huden, ikke ble fylt opp helt og liknende. I slike tilfeller vil testen bli tatt senere enn protokollen tilsier, og vi vil risikere at laktat-nivået har endret seg. En annen typisk feil som kan skje er at man ikke redder laktaten med en gang man har fyllt røret. Hvis man tar seg tid til å tørke blod og gi utøveren plaster først vil disse sekundene med forsinkelse også kunne påvirke laktatnivået i prøven.
+
+Vi hadde de samme testlederne for hver enkelt deltaker hver gang, slik at heiing, oppmuntring og oppdatering underveid i testen skulle være så likkt som mulig. Dette er fordi det mentale spiller en stor rolle i deltakernes evne til å presse seg og få ut alt de har på testen. Ideelt sett skal man som testleder gjøre nøyaktig det samme hver gang, samme informasjon, samme beskjeder og lik heiing. Det vil selvfølgelig være umulig å få til dette helt nøyaktig, men vi prøvde på dette også ved å følge protokollen. Har testleder derimot en god eller dårlig dag vil dette lett påvirke intensiteten i heiing, som igjen vil påvikre utøverens prestasjon
+
+En annen feil som skjedde var at at vi en eller to ganger var litt unøyaktig med å starte testen i vyntus og lode samtidig. Dette gjør at watt-økning for eksempel kunne komme litt før eller litt etter målingen i vyntus. Dette kan både være problem for testlederen som skal gi tilbakemeldinger og for utøveren som kanskje kjenner at wattøkningen kommer tidligere enn testleder gir beskjed om. Start og stopp av stoppeklokke ble også forsinket ved et par anledninger.
+
+På t4 manglet det også stoppeklokke på laboratoriumet. Vi løste dette med å bruke en telefon som stoppeklokke i stedet. Det ble litt vanskeligere for utøveren å følge med på tiden på grunn av dette.
+
+**Andre grupper**
+
+I denne rapporten har vi også brukt data fra de andre gruppene i klassen vår. Dette gjør at vi har et bredere datautvalg som vi kan benytte oss av. Problemet med dette er at vi ikke har kontroll på andre gruppers protokoll, avvik, nøyaktighet osv.
+
 
 ## Referanseliste
 
