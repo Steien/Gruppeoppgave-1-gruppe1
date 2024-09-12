@@ -1,0 +1,241 @@
+---
+title: "Notes 2024-09-12"
+bibliography: resources/bibliography.bib
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+
+# Set a seed for the random number generator
+set.seed(1)
+# Generate 10 random numbers from a normal distribution with mean 0 and SD 1
+x <- rnorm(10)
+# Calculate summary statistics
+summary(x)
+fivenum(x)
+
+
+```
+
+```{r}
+
+
+
+summary(x)
+
+
+min(x)
+quantile(x, 0.25)
+median(x)
+mean(x)
+quantile(x, 0.75)
+max(x)
+
+
+```
+
+```{r}
+
+
+x <- c(rnorm(10), NA) 
+
+mean(x)
+
+mean(x, na.rm = TRUE)
+
+
+
+```
+
+```{r}
+
+
+
+library(tidyverse)
+library(exscidata)
+
+
+cyclingstudy %>%
+        summarise(m = mean(VO2.max, na.rm = TRUE))
+
+
+
+```
+
+```{r}
+
+cyclingstudy %>% 
+        # select participant, time-point and VO2max
+        select(subject, timepoint, VO2.max) %>%
+        # Group the data frame by timepoint
+        group_by(timepoint) %>%
+
+        # Summarise with mean and standard deviation for vo2max
+        summarise(m = mean(VO2.max, na.rm = TRUE))  %>%
+        # Print the results
+     print()
+
+
+```
+
+```{r}
+
+
+cyclingstudy %>%
+        summarise(.by = c(timepoint, group), 
+                  m = mean(VO2.max, na.rm = TRUE), 
+                  s = sd(VO2.max, na.rm = TRUE))
+
+
+
+```
+
+### What is the average (mean) cmj.max height in group == "INCR" at timepoint == "meso2"?
+
+```{r}
+
+cyclingstudy %>%
+  summarise(.by = c(group, timepoint), 
+            m = mean(cmj.max, na.rm = TRUE))
+
+
+cyclingstudy %>%
+  filter(group == "INCR", 
+         timepoint == "meso2") %>%
+  summarise(m = mean(cmj.max, na.rm = TRUE))
+
+
+
+
+
+```
+
+### What is the standard deviation of VO2.max at time-point meso3?
+
+```{r}
+
+
+cyclingstudy %>%
+  summarise(.by = timepoint, 
+            s = sd(VO2.max, na.rm = TRUE)) %>%
+  print()
+
+
+cyclingstudy %>%
+  filter(timepoint == "meso3") %>%
+  summarise(s = sd(VO2.max, na.rm = TRUE)) %>%
+  print()
+
+
+
+
+
+```
+
+### Number of observations per group
+
+```{r}
+
+
+cyclingstudy %>%
+        summarise(n = n(), 
+                  .by = c(group, timepoint))
+
+```
+
+## Reproduce a table
+
+```{r}
+
+cyclingstudy %>%
+  select(group, age, height.T1, weight.T1, timepoint) %>%
+  filter(timepoint == "pre") %>%
+  summarise(.by = c(group), 
+            m.age = mean(age, na.rm = TRUE), 
+            sd.age = sd(age, na.rm = TRUE), 
+            m.weight = mean(weight.T1, na.rm = TRUE), 
+            sd.weight = sd(weight.T1, na.rm = TRUE)) %>%
+  print()
+
+
+
+
+```
+
+## Combine data from laboratory exercises
+
+```{r}
+
+library(readxl)
+
+
+vars <- c("id", "timepoint", "temperature", "humidity", 
+          "sex", "age", "height", "weight", "w.max", 
+          "vo2.max", "vco2.max", "rer.max", "ve.max", 
+          "bf.max", "hr.max", "la.max", 
+          "borg.max")
+
+
+dat <- bind_rows(
+read_excel("data/g1.xlsx", sheet = "data_excel", na = "na") %>%
+  select(all_of(vars)) %>%
+  mutate(group = "G1", 
+         id = paste0(group, "_", id)) ,
+
+read_excel("data/g2.xlsx", na = "na") %>%
+   select(all_of(vars)) %>%
+  mutate(group = "G2", 
+         id = paste0(group, "_", id)) ,
+
+read_excel("data/g3.xlsx") %>%
+   select(all_of(vars)) %>%
+  mutate(timepoint = paste0("t", timepoint), 
+         group = "G3", 
+         id = paste0(group, "_", id)) ,
+
+read_excel("data/g4.xlsx") %>%
+   select(all_of(vars)) %>%
+  mutate(group = "G4", 
+         id = paste0(group, "_", id)) )
+
+
+
+
+
+```
+
+### Pivoting and calculating typical error
+
+```{r}
+
+
+cv <- dat %>%
+  select(id, timepoint, la.max) %>%
+  pivot_wider(names_from = timepoint, 
+              values_from = la.max) %>%
+  
+  mutate(diff = t2 - t1) %>% # Change/difference score
+  summarise(m = mean(c(t1, t2), na.rm = TRUE), 
+            s = sd(diff, na.rm = TRUE),  # Summarize to calculate sd, and... 
+            te = s / sqrt(2), 
+            cv = 100 * (te/m)) 
+
+
+cv_percent <- round(cv$cv,1)
+
+
+
+```
+
+## Adding references
+
+Hopkins says [@hopkins]
+
+
+
+## Data in text
+
+The coefficient of variation was `r cv_percent`%
+

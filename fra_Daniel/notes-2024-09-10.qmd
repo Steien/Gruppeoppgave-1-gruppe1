@@ -1,0 +1,75 @@
+---
+title: "Notes from 2024-09-10"
+format: html
+editor_options: 
+  chunk_output_type: console
+---
+
+## Git, github and portfolio exam
+
+We made sure everybody had installed git, github CLI and were able to clone, fork and push to an online repository. Assignments are handed in as github repositories.
+
+
+
+## `dplyr` and pipes
+
+Why pipes? Pipes makes it easy to write code in sequential steps. Example:
+
+```{r}
+
+# Load data for example
+library(exscidata)
+library(tidyverse)
+
+# Look at the data set 
+glimpse(exscidata::cyclingstudy)
+
+
+
+# Take the data
+cyclingstudy %>%
+  # select variables
+  select(subject, age, cmj.max) %>% 
+  # Create a new variable
+  mutate(cmj.max.meancentered = cmj.max - mean(cmj.max, 
+                                               na.rm = TRUE)) %>% 
+  # Remove observations based on condition
+  filter(age > 40) %>% 
+  # Sort the data 
+  arrange(-cmj.max) %>%
+  # print the results
+  print()
+  
+
+
+
+
+
+
+
+```
+
+
+
+## Functions and arguments
+ 
+Pipable functions (in dplyr) work because they have the data argument as the first argument and they give a data frame in return.  
+ 
+ 
+
+
+## Logical operations
+
+```{r}
+
+# The below gives a vector of TRUE and FALSE, this can be used to filter a data set
+exscidata::cyclingstudy$age > 40
+
+
+
+
+
+```
+
+
+
