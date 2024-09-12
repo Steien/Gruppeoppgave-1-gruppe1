@@ -1,10 +1,16 @@
 ---
-title: "Opggave 1: Reliabilitet og verktøy for reproduserbar vitenskapelig data"
+title: "Oppgave 1: Reliabilitet og verktøy for reproduserbar vitenskapelig data"
 author: "Gruppe 1; Trond Steien, Andrine Juvodden, Simon T. H. Kristiansen, Anders Nybakk"
-format: html
+format: 
+  html:
+    code-fold: true
+    code-summary: "Vis kode"
+execute:
+  warning: false
+  message: false
 bibliography: referanser.bib
 editor_options: 
-chunk_output_type: console
+  chunk_output_type: console
 ---
 
 ## Oppgave 1: Reliability and tools for reproducible data science
@@ -17,7 +23,154 @@ I denne rapporten velger vi å fokusere på lakta-max og RER. Vi vil sammenlikne
 
 ## Protokoll
 
-skriv noe
+Protokoll VO2maks-test   
+
+Vi gjennomførte fire testdager. De to første var påfølgende dager, og de to siste var med en dag mellom. Hensikten med disse testdagene var å gjennomføre fysiologiske tester med høy grad av reliabilitet. Det er mange faktorer som kan påvirke validitet og reliabilitet, og det er velidg viktig å ta høyde for dette under fysiologisk testing. Vi tok flere forhåndsregler for å sikre så like testforhold som mulig.  
+
+ 
+
+En VO2maks-test går ut på å måle hvor mange ml en person evner å ta opp og forbruke per minutt. Oksygenkravet øker lineært med økende belastning helt til personen når sin maksimale aerobe kapasitet, da kurven enten flater ut eller synker.  
+
+Maksimalt oksygenopptak beskrives enten i absolutte tall (ml/min) eller som relative tall i forhold til kroppsvekt (ml/kg/min).  
+
+ 
+
+## Metode:  
+
+VO2maks-testen ble gjennomført som en trappetrinnstest der motstanden økte med 20W hvert minutt til utmattelse, eller når RPM < 60. Det registreres målinger av VO2maks ved hvert 30 sek. Deltakerne startet testen på en watt tilsvarende fysisk form og erfaring med sykkel. Etter testene var ferdige ble informasjonen innhentet og plottet i et ferdig formatert Excel-dokument.  
+
+Da en tydelig protokoll ble fulgt for å etterstrebe så sikre og reliable tester som mulig, er det flere forhold som må tas underveis. Matinntak og koffeininntak fra samme dag og kvelden før ble registrert ved første test, og skulle være likt ved de påfølgende testene. Trening dagen før test ble også registrert, men lyktes ikke i å reprodusere dette da trening dagen før test 2 ble gårsdagens VO2maks-test. Vi hadde også føringer om at man skulle etterstrebe lik søvn på dagene før test. For å sikre lik grad av formuleringer og verbal instruks samt grad av engasjement og heiing, hadde hver deltaker samme testleder ved hver test.  
+
+ 
+
+# Protokoll 
+
+
+### FØR TEST:  
+
+Starte laktatmaskin 
+
+Bytte standard hvis den er tom (finnes i kjøleskap) 
+
+  
+Finne frem munnstykke og sette sammen dette 
+
+Husk hansker 
+
+Papir med neseklype rundt når den er klar 
+
+Ta med ny slange som festes i miksekammer 
+
+
+Skru på Lode-sykkel. 
+
+Skru på Vyntus og Lode PC  
+
+### Kalibrere oksygenanalysator 
+
+Gasskalibrering 
+
+Åpne gassflaske (lukkes når kalibrering er ferdig) 
+
+Sjekke at sensor er koblet i maskinen 
+
+Start kalibrering  
+
+Godtar 2% feilmargin, hvis den er høyere må man rekalibrere 
+
+ 
+
+Volumkalibrering-  
+
+Feilmargin på 0,2% eller under godtas 
+
+ 
+
+Kalibrere kammer 
+
+Flytte sensor til kammer 
+
+Skru av gass 
+
+
+### forberede utstyr
+
+Lage ny pasient på Vyntus og Lode 
+
+Idr4000_h24_g1_idx  
+
+ 
+Veie personen i så lite klær som mulig (trekke fra 300g for klær) 
+
+Lage plotteark 
+
+Stille inn krankarm (172,5) og kalibrere sykkel på Lode PC 
+
+Stille inn sykkel til deltaker  
+
+Fullføre plotteark 
+
+Klargjøre laktatrør, papir og teip, samt teip til neseklype 
+
+
+Velge protokoll på Lode PC. Dersom personen ikke har erfaring med sykkel må man bli enige om en Watt man tror kan passe.  
+
+Forklare forsøksperson hva testen innebærer, opplyse om borg skala og hvor på skala man vil ha den.  
+
+
+VO2max – Kondisjon  
+
+Målinger per 30 sek. 
+
+Prestasjonstest – hvert sekund teller 
+
+Watt-økning per 1 min. 
+
+80-100 rpm, stopper test hvis under 60 
+
+Pulsmåling  
+
+Borg skala – 6 = sofa, 20 = maks 
+
+Laktatmåling 1 min etter test – stikk i fingeren 
+
+Vifte? 
+
+
+# ETTER TEST:  
+
+Avslutte test på begge PC 
+
+Spørre om Borg skala 
+
+1 minutt etter endt test skal det tas laktat-prøve. Tok 2 prøver for å sikre god reliabilitet.  
+
+
+### Hente rapport: 
+
+Rapport: INN_TABELL:30SEK_MIX 
+
+Søke opp id-nr. 
+
+Lagre i rett mappe: F10 (nederste knapp) 
+
+Lagre i rett mappe på minnepenn 
+
+Overføre til One Drive på labbPCn 
+
+ 
+
+# Standardisering:  
+
+Hva harvi standardisert?
+
+
+  
+START av test: husk labfrakk 
+
+Start vyntus 1 minutt før  
+
+ 
 
 ## Resultater
 
@@ -26,6 +179,7 @@ skriv noe
 library(readxl)
 library(dplyr)
 library(tidyverse)
+
 
 # Definerer variablene som skal brukes
 vars <- c("id", "timepoint", "temperature", "humidity", 
@@ -68,18 +222,43 @@ read_excel("data/g4.xlsx") %>%
 
 Tabell over deltakere
 
+
+# Tabell over demografiske variabler deltagerne. (n= antall deltagere).
 ```{r}
 dat %>%
-  select(group, age, height, weight, timepoint) %>%
-  filter(timepoint == "pre") %>%
-  summarise(.by = c(group),
-            m.age = mean(age, na.rm = TRUE),
-            sd.age = sd(age, na.rm = TRUE),
-            m.height = mean(height, na.rm = TRUE),
-            sd.height = sd(height, na.rm = TRUE),
-            m.weight = mean(weight, na.rm = TRUE),
-            sd.weight = sd(weight, na.rm = TRUE))
-  print()
+  select(timepoint, age, height, weight) %>%
+  group_by(timepoint) %>%
+  summarise(
+    m.age = mean(age, na.rm = TRUE),
+    sd.age = sd(age, na.rm = TRUE),
+    m.height = mean(height, na.rm = TRUE),
+    sd.height = sd(height, na.rm = TRUE),
+    m.weight = mean(weight, na.rm = TRUE),
+    sd.weight = sd(weight, na.rm = TRUE),
+    n = n(),
+    .groups = "drop"
+  )
+# velger etter variablene, grupperer de etter timepoint(testdagene), summerer de forskjellige verdiene, n teller antall rader(deltagere) i hver gruppe 
+
+```
+
+# Tabell over demografiske variabler fordelt etter kjønn. (n= antall deltagere).
+```{r}
+
+dat %>%
+  select(timepoint, sex, age, height, weight) %>%
+  group_by(timepoint, sex) %>%
+  summarise(
+    m.age = mean(age, na.rm = TRUE),
+    sd.age = sd(age, na.rm = TRUE),
+    m.height = mean(height, na.rm = TRUE),
+    sd.height = sd(height, na.rm = TRUE),
+    m.weight = mean(weight, na.rm = TRUE),
+    sd.weight = sd(weight, na.rm = TRUE),
+    n = n(),
+    .groups = "drop"
+  )
+
 ```
 
 
