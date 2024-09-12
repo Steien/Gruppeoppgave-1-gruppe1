@@ -26,6 +26,18 @@ skriv noe
 
 skriv noe, legg inn graf osv
 
+```{r}
+install.packages("readxl")
+library(readxl)
+
+filsti <- data
+
+datasett <- read_excel(filsti)
+
+head(datasett)
+
+```
+
 ## Avvik og feilkilder
 
 temp, luftfukt, tidspunkt, mat, unøyaktiget i framgangsmåte. laktat, dagsform, heiing osv.
