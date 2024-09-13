@@ -23,154 +23,129 @@ I denne rapporten velger vi å fokusere på lakta-max og RER. Vi vil sammenlikne
 
 ## Protokoll
 
-Protokoll VO2maks-test   
+Protokoll VO2maks-test
 
-Vi gjennomførte fire testdager. De to første var påfølgende dager, og de to siste var med en dag mellom. Hensikten med disse testdagene var å gjennomføre fysiologiske tester med høy grad av reliabilitet. Det er mange faktorer som kan påvirke validitet og reliabilitet, og det er velidg viktig å ta høyde for dette under fysiologisk testing. Vi tok flere forhåndsregler for å sikre så like testforhold som mulig.  
+Vi gjennomførte fire testdager. De to første var påfølgende dager, og de to siste var med en dag mellom. Hensikten med disse testdagene var å gjennomføre fysiologiske tester med høy grad av reliabilitet. Det er mange faktorer som kan påvirke validitet og reliabilitet, og det er velidg viktig å ta høyde for dette under fysiologisk testing. Vi tok flere forhåndsregler for å sikre så like testforhold som mulig.
 
- 
+En VO2maks-test går ut på å måle hvor mange ml en person evner å ta opp og forbruke per minutt. Oksygenkravet øker lineært med økende belastning helt til personen når sin maksimale aerobe kapasitet, da kurven enten flater ut eller synker.
 
-En VO2maks-test går ut på å måle hvor mange ml en person evner å ta opp og forbruke per minutt. Oksygenkravet øker lineært med økende belastning helt til personen når sin maksimale aerobe kapasitet, da kurven enten flater ut eller synker.  
+Maksimalt oksygenopptak beskrives enten i absolutte tall (ml/min) eller som relative tall i forhold til kroppsvekt (ml/kg/min).
 
-Maksimalt oksygenopptak beskrives enten i absolutte tall (ml/min) eller som relative tall i forhold til kroppsvekt (ml/kg/min).  
+## Metode:
 
- 
+VO2maks-testen ble gjennomført som en trappetrinnstest der motstanden økte med 20W hvert minutt til utmattelse, eller når RPM \< 60. Det registreres målinger av VO2maks ved hvert 30 sek. Deltakerne startet testen på en watt tilsvarende fysisk form og erfaring med sykkel. Etter testene var ferdige ble informasjonen innhentet og plottet i et ferdig formatert Excel-dokument.
 
-## Metode:  
+Da en tydelig protokoll ble fulgt for å etterstrebe så sikre og reliable tester som mulig, er det flere forhold som må tas underveis. Matinntak og koffeininntak fra samme dag og kvelden før ble registrert ved første test, og skulle være likt ved de påfølgende testene. Trening dagen før test ble også registrert, men lyktes ikke i å reprodusere dette da trening dagen før test 2 ble gårsdagens VO2maks-test. Vi hadde også føringer om at man skulle etterstrebe lik søvn på dagene før test. For å sikre lik grad av formuleringer og verbal instruks samt grad av engasjement og heiing, hadde hver deltaker samme testleder ved hver test.
 
-VO2maks-testen ble gjennomført som en trappetrinnstest der motstanden økte med 20W hvert minutt til utmattelse, eller når RPM < 60. Det registreres målinger av VO2maks ved hvert 30 sek. Deltakerne startet testen på en watt tilsvarende fysisk form og erfaring med sykkel. Etter testene var ferdige ble informasjonen innhentet og plottet i et ferdig formatert Excel-dokument.  
+# Protokoll
 
-Da en tydelig protokoll ble fulgt for å etterstrebe så sikre og reliable tester som mulig, er det flere forhold som må tas underveis. Matinntak og koffeininntak fra samme dag og kvelden før ble registrert ved første test, og skulle være likt ved de påfølgende testene. Trening dagen før test ble også registrert, men lyktes ikke i å reprodusere dette da trening dagen før test 2 ble gårsdagens VO2maks-test. Vi hadde også føringer om at man skulle etterstrebe lik søvn på dagene før test. For å sikre lik grad av formuleringer og verbal instruks samt grad av engasjement og heiing, hadde hver deltaker samme testleder ved hver test.  
+### FØR TEST:
 
- 
+Starte laktatmaskin
 
-# Protokoll 
+Bytte standard hvis den er tom (finnes i kjøleskap)
 
+Finne frem munnstykke og sette sammen dette
 
-### FØR TEST:  
+Husk hansker
 
-Starte laktatmaskin 
+Papir med neseklype rundt når den er klar
 
-Bytte standard hvis den er tom (finnes i kjøleskap) 
+Ta med ny slange som festes i miksekammer
 
-  
-Finne frem munnstykke og sette sammen dette 
+Skru på Lode-sykkel.
 
-Husk hansker 
+Skru på Vyntus og Lode PC
 
-Papir med neseklype rundt når den er klar 
+### Kalibrere oksygenanalysator
 
-Ta med ny slange som festes i miksekammer 
+Gasskalibrering
 
+Åpne gassflaske (lukkes når kalibrering er ferdig)
 
-Skru på Lode-sykkel. 
+Sjekke at sensor er koblet i maskinen
 
-Skru på Vyntus og Lode PC  
+Start kalibrering
 
-### Kalibrere oksygenanalysator 
+Godtar 2% feilmargin, hvis den er høyere må man rekalibrere
 
-Gasskalibrering 
+Volumkalibrering-
 
-Åpne gassflaske (lukkes når kalibrering er ferdig) 
+Feilmargin på 0,2% eller under godtas
 
-Sjekke at sensor er koblet i maskinen 
+Kalibrere kammer
 
-Start kalibrering  
+Flytte sensor til kammer
 
-Godtar 2% feilmargin, hvis den er høyere må man rekalibrere 
-
- 
-
-Volumkalibrering-  
-
-Feilmargin på 0,2% eller under godtas 
-
- 
-
-Kalibrere kammer 
-
-Flytte sensor til kammer 
-
-Skru av gass 
-
+Skru av gass
 
 ### forberede utstyr
 
-Lage ny pasient på Vyntus og Lode 
+Lage ny pasient på Vyntus og Lode
 
-Idr4000_h24_g1_idx  
+Idr4000_h24_g1_idx
 
- 
-Veie personen i så lite klær som mulig (trekke fra 300g for klær) 
+Veie personen i så lite klær som mulig (trekke fra 300g for klær)
 
-Lage plotteark 
+Lage plotteark
 
-Stille inn krankarm (172,5) og kalibrere sykkel på Lode PC 
+Stille inn krankarm (172,5) og kalibrere sykkel på Lode PC
 
-Stille inn sykkel til deltaker  
+Stille inn sykkel til deltaker
 
-Fullføre plotteark 
+Fullføre plotteark
 
-Klargjøre laktatrør, papir og teip, samt teip til neseklype 
+Klargjøre laktatrør, papir og teip, samt teip til neseklype
 
+Velge protokoll på Lode PC. Dersom personen ikke har erfaring med sykkel må man bli enige om en Watt man tror kan passe.
 
-Velge protokoll på Lode PC. Dersom personen ikke har erfaring med sykkel må man bli enige om en Watt man tror kan passe.  
+Forklare forsøksperson hva testen innebærer, opplyse om borg skala og hvor på skala man vil ha den.
 
-Forklare forsøksperson hva testen innebærer, opplyse om borg skala og hvor på skala man vil ha den.  
+VO2max – Kondisjon
 
+Målinger per 30 sek.
 
-VO2max – Kondisjon  
+Prestasjonstest – hvert sekund teller
 
-Målinger per 30 sek. 
+Watt-økning per 1 min.
 
-Prestasjonstest – hvert sekund teller 
+80-100 rpm, stopper test hvis under 60
 
-Watt-økning per 1 min. 
+Pulsmåling
 
-80-100 rpm, stopper test hvis under 60 
+Borg skala – 6 = sofa, 20 = maks
 
-Pulsmåling  
+Laktatmåling 1 min etter test – stikk i fingeren
 
-Borg skala – 6 = sofa, 20 = maks 
+Vifte?
 
-Laktatmåling 1 min etter test – stikk i fingeren 
+### ETTER TEST:
 
-Vifte? 
+Avslutte test på begge PC
 
+Spørre om Borg skala
 
-# ETTER TEST:  
+1 minutt etter endt test skal det tas laktat-prøve. Tok 2 prøver for å sikre god reliabilitet.
 
-Avslutte test på begge PC 
+### Hente rapport:
 
-Spørre om Borg skala 
+Rapport: INN_TABELL:30SEK_MIX
 
-1 minutt etter endt test skal det tas laktat-prøve. Tok 2 prøver for å sikre god reliabilitet.  
+Søke opp id-nr.
 
+Lagre i rett mappe: F10 (nederste knapp)
 
-### Hente rapport: 
+Lagre i rett mappe på minnepenn
 
-Rapport: INN_TABELL:30SEK_MIX 
+Overføre til One Drive på labbPCn
 
-Søke opp id-nr. 
-
-Lagre i rett mappe: F10 (nederste knapp) 
-
-Lagre i rett mappe på minnepenn 
-
-Overføre til One Drive på labbPCn 
-
- 
-
-# Standardisering:  
+### Standardisering:
 
 Hva harvi standardisert?
 
+START av test: husk labfrakk
 
-  
-START av test: husk labfrakk 
-
-Start vyntus 1 minutt før  
-
- 
+Start vyntus 1 minutt før
 
 ## Resultater
 
@@ -222,8 +197,8 @@ read_excel("data/g4.xlsx") %>%
 
 Tabell over deltakere
 
-
 # Tabell over demografiske variabler deltagerne. (n= antall deltagere).
+
 ```{r}
 dat %>%
   select(timepoint, age, height, weight) %>%
@@ -243,6 +218,7 @@ dat %>%
 ```
 
 # Tabell over demografiske variabler fordelt etter kjønn. (n= antall deltagere).
+
 ```{r}
 
 dat %>%
@@ -261,10 +237,10 @@ dat %>%
 
 ```
 
-
 variasjon eller reliabilitetstallet til den la.max, så den rer.max. sammenlikne til slutt
 
 ### Standard avvik:
+
 **laktat**
 
 ```{r}
@@ -278,6 +254,7 @@ dat %>%
 ```
 
 **RER**
+
 ```{r}
 
 dat %>%
@@ -287,7 +264,6 @@ dat %>%
 
 
 ```
-
 
 **Graf over laktatmålingene**
 
@@ -313,6 +289,28 @@ ggplot(data = dat,
 ```
 
 
+```{r}
+```{r}
+#| code-fold: true
+#| message: false
+#| warning: false
+
+
+ggplot(data = dat,
+       aes(y = rer.max,
+           x = timepoint,
+           group = id)) +
+  
+  geom_point() +
+  
+  geom_line() + 
+  
+  labs(y = "RER max",
+       x = "tidspunkt (testnummer)")
+
+
+```
+```
 
 ## Avvik og feilkilder
 

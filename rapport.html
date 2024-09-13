@@ -191,12 +191,12 @@ div.csl-indent {
 <p>Laktatmåling 1 min etter test – stikk i fingeren</p>
 <p>Vifte?</p>
 </section>
-</section>
-<section id="etter-test" class="level1">
-<h1>ETTER TEST:</h1>
+<section id="etter-test" class="level3">
+<h3 class="anchored" data-anchor-id="etter-test">ETTER TEST:</h3>
 <p>Avslutte test på begge PC</p>
 <p>Spørre om Borg skala</p>
 <p>1 minutt etter endt test skal det tas laktat-prøve. Tok 2 prøver for å sikre god reliabilitet.</p>
+</section>
 <section id="hente-rapport" class="level3">
 <h3 class="anchored" data-anchor-id="hente-rapport">Hente rapport:</h3>
 <p>Rapport: INN_TABELL:30SEK_MIX</p>
@@ -205,12 +205,12 @@ div.csl-indent {
 <p>Lagre i rett mappe på minnepenn</p>
 <p>Overføre til One Drive på labbPCn</p>
 </section>
-</section>
-<section id="standardisering" class="level1">
-<h1>Standardisering:</h1>
+<section id="standardisering" class="level3">
+<h3 class="anchored" data-anchor-id="standardisering">Standardisering:</h3>
 <p>Hva harvi standardisert?</p>
 <p>START av test: husk labfrakk</p>
 <p>Start vyntus 1 minutt før</p>
+</section>
 <section id="resultater" class="level2">
 <h2 class="anchored" data-anchor-id="resultater">Resultater</h2>
 <div class="cell">
@@ -415,6 +415,30 @@ div.csl-indent {
 </div>
 </div>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Vis kode</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> dat,</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y =</span> rer.max,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">x =</span> timepoint,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">group =</span> id)) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">"RER max"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"tidspunkt (testnummer)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="rapport_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>```</p>
 </section>
 <section id="avvik-og-feilkilder" class="level2">
 <h2 class="anchored" data-anchor-id="avvik-og-feilkilder">Avvik og feilkilder</h2>
