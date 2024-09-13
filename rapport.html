@@ -438,7 +438,27 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>```</p>
+</section>
+<section id="pivoting-and-calculating-typical-error" class="level2">
+<h2 class="anchored" data-anchor-id="pivoting-and-calculating-typical-error">Pivoting and calculating typical error</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Vis kode</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>cv <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(id, timepoint, la.max) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> timepoint, </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> la.max) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">diff =</span> t2 <span class="sc">-</span> t1) <span class="sc">%&gt;%</span> <span class="co"># Change/difference score</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">m =</span> <span class="fu">mean</span>(<span class="fu">c</span>(t1, t2), <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">s =</span> <span class="fu">sd</span>(diff, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),  <span class="co"># Summarize to calculate sd, and... </span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">te =</span> s <span class="sc">/</span> <span class="fu">sqrt</span>(<span class="dv">2</span>), </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">cv =</span> <span class="dv">100</span> <span class="sc">*</span> (te<span class="sc">/</span>m)) </span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>cv_percent <span class="ot">&lt;-</span> <span class="fu">round</span>(cv<span class="sc">$</span>cv,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 </section>
 <section id="avvik-og-feilkilder" class="level2">
 <h2 class="anchored" data-anchor-id="avvik-og-feilkilder">Avvik og feilkilder</h2>

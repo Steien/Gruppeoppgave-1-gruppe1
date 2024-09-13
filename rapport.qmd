@@ -310,7 +310,29 @@ ggplot(data = dat,
 
 
 ```
+
+## Pivoting and calculating typical error
+
+```{r}
+cv <- dat %>%
+  select(id, timepoint, la.max) %>%
+  pivot_wider(names_from = timepoint, 
+              values_from = la.max) %>%
+  
+  mutate(diff = t2 - t1) %>% # Change/difference score
+  summarise(m = mean(c(t1, t2), na.rm = TRUE), 
+            s = sd(diff, na.rm = TRUE),  # Summarize to calculate sd, and... 
+            te = s / sqrt(2), 
+            cv = 100 * (te/m)) 
+
+
+cv_percent <- round(cv$cv,1)
+
+
+
+
 ```
+
 
 ## Avvik og feilkilder
 
