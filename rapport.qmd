@@ -239,27 +239,62 @@ variasjon eller reliabilitetstallet til den la.max, så den rer.max. sammenlikne
 
 ## Standard avvik:
 
-### Laktat
+**laktat**
 
 ```{r}
 
-dat %>%
-        summarise(.by = c(timepoint, group), 
-                  m = mean(la.max, na.rm = TRUE), 
-                  s = sd(la.max, na.rm = TRUE))
 
+dat %>%
+  group_by(timepoint) %>%
+  summarise(
+    m = mean(la.max, na.rm = TRUE),
+    s = sd(la.max, na.rm = TRUE),
+    .groups = "drop")
 
 ```
 
-### RER
+**laktat etter kjønn**
 
 ```{r}
 
-dat %>%
-        summarise(.by = c(timepoint, group), 
-                  m = mean(rer.max, na.rm = TRUE), 
-                  s = sd(rer.max, na.rm = TRUE))
 
+dat %>%
+  group_by(timepoint, sex) %>%
+  summarise(
+    m = mean(la.max, na.rm = TRUE),
+    s = sd(la.max, na.rm = TRUE),
+    .groups = "drop")
+
+```
+
+
+**RER**
+
+```{r}
+
+
+dat %>%
+  group_by(timepoint) %>%
+  summarise(
+    m = mean(rer.max, na.rm = TRUE),
+    s = sd(rer.max, na.rm = TRUE),
+    .groups = "drop"
+  )
+
+```
+
+**RER etter kjønn**
+
+```{r}
+
+
+dat %>%
+  group_by(timepoint, sex) %>%
+  summarise(
+    m = mean(rer.max, na.rm = TRUE),
+    s = sd(rer.max, na.rm = TRUE),
+    .groups = "drop"
+  )
 
 ```
 
