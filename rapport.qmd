@@ -288,6 +288,7 @@ ggplot(data = dat,
 
 ```
 
+**Graf for RER-max**
 
 ```{r}
 ```{r}
@@ -310,6 +311,31 @@ ggplot(data = dat,
 
 
 ```
+
+**Spredningsgraf for begge**
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-cap: "Sammenhengen mellom Laktat.max og RER.max"
+
+
+ggplot(data = dat,
+       aes(x = la.max,
+           y = rer.max,
+           fill = group,
+           shape = group)) +
+  
+  geom_point() +
+  
+labs (x = "Laktat maks i (mmol)",
+      y = "RER maks",
+      title = "Sammenhengen mellom Laktat.max og RER.max"
+
+
+```
+
 
 ## Utregning av variasjonskoeffisient
 
