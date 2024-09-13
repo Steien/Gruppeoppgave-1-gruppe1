@@ -163,9 +163,11 @@ read_excel("data/g4.xlsx") %>%
 
 ```
 
-Tabell over deltakere
+# Tabeller 
 
-## Tabell over demografiske variabler deltagerne. (n= antall deltagere).
+# (n = antall deltagere).
+
+## Tabell over demografiske variabler .
 
 ```{r}
 dat %>%
@@ -185,7 +187,7 @@ dat %>%
 
 ```
 
-## Tabell over demografiske variabler fordelt etter kjønn. (n= antall deltagere).
+## Tabell over demografiske variabler fordelt etter kjønn.
 
 ```{r}
 
@@ -219,6 +221,7 @@ dat %>%
   summarise(
     m = mean(la.max, na.rm = TRUE),
     s = sd(la.max, na.rm = TRUE),
+     n = n(),
     .groups = "drop")
 
 ```
@@ -233,6 +236,7 @@ dat %>%
   summarise(
     m = mean(la.max, na.rm = TRUE),
     s = sd(la.max, na.rm = TRUE),
+     n = n(),
     .groups = "drop")
 
 ```
@@ -247,6 +251,7 @@ dat %>%
   summarise(
     m = mean(rer.max, na.rm = TRUE),
     s = sd(rer.max, na.rm = TRUE),
+     n = n(),
     .groups = "drop"
   )
 
@@ -262,6 +267,7 @@ dat %>%
   summarise(
     m = mean(rer.max, na.rm = TRUE),
     s = sd(rer.max, na.rm = TRUE),
+     n = n(),
     .groups = "drop"
   )
 
@@ -270,10 +276,6 @@ dat %>%
 ### Graf over laktatmålingene
 
 ```{r}
-#| code-fold: true
-#| message: false
-#| warning: false
-
 
 ggplot(data = dat,
        aes(y = la.max,
@@ -293,10 +295,6 @@ ggplot(data = dat,
 ### Graf over RER-målingene
 
 ```{r}
-#| code-fold: true
-#| message: false
-#| warning: false
-
 
 ggplot(data = dat,
        aes(y = rer.max,
@@ -355,13 +353,15 @@ cv <- dat %>%
             cv = 100 * (te/m)) 
 
 
-cv_percent <- round(cv$cv,1)
+cv_percentRER <- round(cv$cv,1)
 
 
 
 ```
 
-Variasjonskoeffisienten for RER maks var `r cv_percent`%
+
+Variasjonskoeffisienten for RER maks var `r cv_percentRER`%
+
 
 # Avvik og feilkilder
 
@@ -401,6 +401,32 @@ På t4 manglet det også stoppeklokke på laboratoriumet. Vi løste dette med å
 
 **Andre grupper**
 
-I denne rapporten har vi også brukt data fra de andre gruppene i klassen vår. Dette gjør at vi har et bredere datautvalg som vi kan benytte oss av. Problemet med dette er at vi ikke har kontroll på andre gruppers protokoll, avvik, nøyaktighet osv. I datasettet var det for eksempel en plottefeil mellom rer.max og ve.max som vi ikke fikk endret på. Dette førte igjen til en feil i utregning av standard avvik, og at en eventuell tabell ikke ble brukbar.
+I denne rapporten har vi også brukt data fra de andre gruppene i klassen vår. Dette gjør at vi har et bredere datautvalg som vi kan benytte oss av. Problemet med dette er at vi ikke har kontroll på andre gruppers protokoll, avvik, nøyaktighet osv. I datasettet var det for eksempel en plottefeil mellom rer.max og ve.max som vi ikke fikk endret på. Dette førte igjen til en feil i utregning av standard avvik, og at en eventuell tabell ikke ble brukbar. Det var også plottet ulikt på kjønn, da noen skrev "f","F","k" eller "kvinne" for kvinner, og "m", "M" eller "mann" for menn. Dette fikset vi ved å gå inn i exelarket og erstatte alle med "f" og "m" på de korresponderende kjønnene.
+
+# Resultat
+```{r}
+sd_age_t4 <- dat %>%
+  filter(timepoint == "t4") %>%
+  summarise(sd_age = sd(age, na.rm = TRUE)) %>%
+  pull(sd_age)
+
+#for å referere til standard avik til t4 i teksten
+
+```
+
+
+Vi valgte å se på laktat og RER i denne oppgaven. Når RER øker over 1.0 indikere det ofte at laktatproduksjonen øker. RER samfatter ofte med den anaerobe terskelen hvor laktatnivået begynner å stige raskt.
+
+Variasjonskoeffisientene var:\
+laktat `r cv_percent`%\
+RER `r cv_percentRER`%
+
+Disse målingene indikerer at RER- målingene er betydelig mer konsistente enn laktatmålingene. Hvor RER har høy reliabilitet og laktat har betraktelig lavere reliabilitet. Dette er også noe som gjenspeiles på standardavvikene til de respektive målingene.
+
+Med tanke på de demografiske variablene ser vi at det er noe forskjell i alder, høyde og vekt mellom tidspunktene og kjønnene. Det er også få kvinner med. Det er en særlig større variasjon i alder på t4(`r round(sd_age_t4, 2)` år.). Dette har mest sannsynlig sammenheng med at de to siste og spesielt t4 hadde færre deltagere. Dette vil påvirke rentabiliteten negativt.
+
+Samlet sett viser dataen at RER-målingene er høyst reliable og at laktatmålingene er mindre konsistente. Dette betyr ikke nødvendigvis at laktatmålingene er helt ubrukelige, men at de bør tolkes med forsiktighet og i sammenheng med andre fysiologiske markører som RER.
+
+Det kan være flere grunner til dette. Vi tror en av de mest sannsynlige årsakene er vår uerfarenhent med å ta laktatprøver. Tid etter endt test før prøven ble tatt, forurensning av for eksempel svette i blod eller prøver med for lite eller for mye blod kan være mulige feilkilder. Derimot er RER-målinger automatisert og mindre påvirket av faktorer som prøvetakingteknikk.
 
 # Referanseliste

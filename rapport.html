@@ -260,9 +260,14 @@ div.csl-indent {
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Viser de første radene av det samlede datasettet</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<p>Tabell over deltakere</p>
-<section id="tabell-over-demografiske-variabler-deltagerne.-n-antall-deltagere." class="level2">
-<h2 class="anchored" data-anchor-id="tabell-over-demografiske-variabler-deltagerne.-n-antall-deltagere.">Tabell over demografiske variabler deltagerne. (n= antall deltagere).</h2>
+</section>
+<section id="tabeller" class="level1">
+<h1>Tabeller</h1>
+</section>
+<section id="n-antall-deltagere." class="level1">
+<h1>(n = antall deltagere).</h1>
+<section id="tabell-over-demografiske-variabler-." class="level2">
+<h2 class="anchored" data-anchor-id="tabell-over-demografiske-variabler-.">Tabell over demografiske variabler .</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Vis kode</summary>
@@ -295,8 +300,8 @@ div.csl-indent {
 </details>
 </div>
 </section>
-<section id="tabell-over-demografiske-variabler-fordelt-etter-kjønn.-n-antall-deltagere." class="level2">
-<h2 class="anchored" data-anchor-id="tabell-over-demografiske-variabler-fordelt-etter-kjønn.-n-antall-deltagere.">Tabell over demografiske variabler fordelt etter kjønn. (n= antall deltagere).</h2>
+<section id="tabell-over-demografiske-variabler-fordelt-etter-kjønn." class="level2">
+<h2 class="anchored" data-anchor-id="tabell-over-demografiske-variabler-fordelt-etter-kjønn.">Tabell over demografiske variabler fordelt etter kjønn.</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Vis kode</summary>
@@ -341,16 +346,17 @@ div.csl-indent {
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">m =</span> <span class="fu">mean</span>(la.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">s =</span> <span class="fu">sd</span>(la.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 3
-  timepoint     m     s
-  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;
-1 t1         12.2  2.76
-2 t2         12.3  2.91
-3 t3         13.6  2.50
-4 t4         13.8  2.31</code></pre>
+<pre><code># A tibble: 4 × 4
+  timepoint     m     s     n
+  &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+1 t1         12.2  2.76    14
+2 t2         12.3  2.91    14
+3 t3         13.6  2.50    11
+4 t4         13.8  2.31     8</code></pre>
 </div>
 </div>
 <p><strong>laktat etter kjønn</strong></p>
@@ -362,20 +368,21 @@ div.csl-indent {
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">m =</span> <span class="fu">mean</span>(la.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">s =</span> <span class="fu">sd</span>(la.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 4
-  timepoint sex       m     s
-  &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;
-1 t1        f      13.0 0.954
-2 t1        m      12.0 3.08 
-3 t2        f      12.9 2.70 
-4 t2        m      12.1 3.09 
-5 t3        f      12   1.40 
-6 t3        m      14.0 2.60 
-7 t4        f      12.3 3.20 
-8 t4        m      14.7 1.15 </code></pre>
+<pre><code># A tibble: 8 × 5
+  timepoint sex       m     s     n
+  &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;
+1 t1        f      13.0 0.954     3
+2 t1        m      12.0 3.08     11
+3 t2        f      12.9 2.70      3
+4 t2        m      12.1 3.09     11
+5 t3        f      12   1.40      2
+6 t3        m      14.0 2.60      9
+7 t4        f      12.3 3.20      3
+8 t4        m      14.7 1.15      5</code></pre>
 </div>
 </div>
 <p><strong>RER</strong></p>
@@ -387,17 +394,18 @@ div.csl-indent {
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">m =</span> <span class="fu">mean</span>(rer.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">s =</span> <span class="fu">sd</span>(rer.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 3
-  timepoint     m      s
-  &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt;
-1 t1         1.14 0.0337
-2 t2         1.15 0.0379
-3 t3         1.18 0.0454
-4 t4         1.19 0.0308</code></pre>
+<pre><code># A tibble: 4 × 4
+  timepoint     m      s     n
+  &lt;chr&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+1 t1         1.14 0.0337    14
+2 t2         1.15 0.0379    14
+3 t3         1.18 0.0454    11
+4 t4         1.19 0.0308     8</code></pre>
 </div>
 </div>
 <p><strong>RER etter kjønn</strong></p>
@@ -409,21 +417,22 @@ div.csl-indent {
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">m =</span> <span class="fu">mean</span>(rer.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">s =</span> <span class="fu">sd</span>(rer.max, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 8 × 4
-  timepoint sex       m      s
-  &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt;
-1 t1        f      1.14 0.0126
-2 t1        m      1.14 0.0379
-3 t2        f      1.16 0.0304
-4 t2        m      1.14 0.0398
-5 t3        f      1.17 0.0318
-6 t3        m      1.18 0.0493
-7 t4        f      1.19 0.0225
-8 t4        m      1.18 0.0371</code></pre>
+<pre><code># A tibble: 8 × 5
+  timepoint sex       m      s     n
+  &lt;chr&gt;     &lt;chr&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+1 t1        f      1.14 0.0126     3
+2 t1        m      1.14 0.0379    11
+3 t2        f      1.16 0.0304     3
+4 t2        m      1.14 0.0398    11
+5 t3        f      1.17 0.0318     2
+6 t3        m      1.18 0.0493     9
+7 t4        f      1.19 0.0225     3
+8 t4        m      1.18 0.0371     5</code></pre>
 </div>
 </div>
 <section id="graf-over-laktatmålingene" class="level3">
@@ -521,7 +530,7 @@ div.csl-indent {
 <span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">cv =</span> <span class="dv">100</span> <span class="sc">*</span> (te<span class="sc">/</span>m)) </span>
 <span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>cv_percent <span class="ot">&lt;-</span> <span class="fu">round</span>(cv<span class="sc">$</span>cv,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>cv_percentRER <span class="ot">&lt;-</span> <span class="fu">round</span>(cv<span class="sc">$</span>cv,<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Variasjonskoeffisienten for RER maks var 1.6%</p>
@@ -548,8 +557,30 @@ div.csl-indent {
 <p>En annen feil som skjedde var at at vi en eller to ganger var litt unøyaktig med å starte testen i vyntus og lode samtidig. Dette gjør at watt-økning for eksempel kunne komme litt før eller litt etter målingen i vyntus. Dette kan både være problem for testlederen som skal gi tilbakemeldinger og for utøveren som kanskje kjenner at wattøkningen kommer tidligere enn testleder gir beskjed om. Start og stopp av stoppeklokke ble også forsinket ved et par anledninger.</p>
 <p>På t4 manglet det også stoppeklokke på laboratoriumet. Vi løste dette med å bruke en telefon som stoppeklokke i stedet. Det ble litt vanskeligere for utøveren å følge med på tiden på grunn av dette.</p>
 <p><strong>Andre grupper</strong></p>
-<p>I denne rapporten har vi også brukt data fra de andre gruppene i klassen vår. Dette gjør at vi har et bredere datautvalg som vi kan benytte oss av. Problemet med dette er at vi ikke har kontroll på andre gruppers protokoll, avvik, nøyaktighet osv. I datasettet var det for eksempel en plottefeil mellom rer.max og ve.max som vi ikke fikk endret på. Dette førte igjen til en feil i utregning av standard avvik, og at en eventuell tabell ikke ble brukbar.</p>
+<p>I denne rapporten har vi også brukt data fra de andre gruppene i klassen vår. Dette gjør at vi har et bredere datautvalg som vi kan benytte oss av. Problemet med dette er at vi ikke har kontroll på andre gruppers protokoll, avvik, nøyaktighet osv. I datasettet var det for eksempel en plottefeil mellom rer.max og ve.max som vi ikke fikk endret på. Dette førte igjen til en feil i utregning av standard avvik, og at en eventuell tabell ikke ble brukbar. Det var også plottet ulikt på kjønn, da noen skrev “f”,“F”,“k” eller “kvinne” for kvinner, og “m”, “M” eller “mann” for menn. Dette fikset vi ved å gå inn i exelarket og erstatte alle med “f” og “m” på de korresponderende kjønnene.</p>
 </section>
+</section>
+<section id="resultat" class="level1">
+<h1>Resultat</h1>
+<div class="cell">
+<details class="code-fold">
+<summary>Vis kode</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sd_age_t4 <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(timepoint <span class="sc">==</span> <span class="st">"t4"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sd_age =</span> <span class="fu">sd</span>(age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sd_age)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co">#for å referere til standard avik til t4 i teksten</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Vi valgte å se på laktat og RER i denne oppgaven. Når RER øker over 1.0 indikere det ofte at laktatproduksjonen øker. RER samfatter ofte med den anaerobe terskelen hvor laktatnivået begynner å stige raskt.</p>
+<p>Variasjonskoeffisientene var:<br>
+laktat 7.6%<br>
+RER 1.6%</p>
+<p>Disse målingene indikerer at RER- målingene er betydelig mer konsistente enn laktatmålingene. Hvor RER har høy reliabilitet og laktat har betraktelig lavere reliabilitet. Dette er også noe som gjenspeiles på standardavvikene til de respektive målingene.</p>
+<p>Med tanke på de demografiske variablene ser vi at det er noe forskjell i alder, høyde og vekt mellom tidspunktene og kjønnene. Det er også få kvinner med. Det er en særlig større variasjon i alder på t4(7.22 år.). Dette har mest sannsynlig sammenheng med at de to siste og spesielt t4 hadde færre deltagere. Dette vil påvirke rentabiliteten negativt.</p>
+<p>Samlet sett viser dataen at RER-målingene er høyst reliable og at laktatmålingene er mindre konsistente. Dette betyr ikke nødvendigvis at laktatmålingene er helt ubrukelige, men at de bør tolkes med forsiktighet og i sammenheng med andre fysiologiske markører som RER.</p>
+<p>Det kan være flere grunner til dette. Vi tror en av de mest sannsynlige årsakene er vår uerfarenhent med å ta laktatprøver. Tid etter endt test før prøven ble tatt, forurensning av for eksempel svette i blod eller prøver med for lite eller for mye blod kan være mulige feilkilder. Derimot er RER-målinger automatisert og mindre påvirket av faktorer som prøvetakingteknikk.</p>
 </section>
 <section id="referanseliste" class="level1 unnumbered">
 
