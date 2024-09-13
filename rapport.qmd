@@ -13,15 +13,13 @@ editor_options:
   chunk_output_type: console
 ---
 
-## Oppgave 1: Reliability and tools for reproducible data science
-
-## Introduksjon
+# Introduksjon
 
 I vår studie har vi gjennomført VO2 max-tester over fire forskjellige dager for å vurdere påliteligheten av de innsamlede dataene. Formålet med disse testene var å undersøke hvor konsistente resultatene er under kontrollerte forhold. For å oppnå dette har vi forsøkt å standardisere flere variabler, inkludert treningsnivå og matinntak dagen før testene. Ifølge @halperin2015 er det avgjørende å bruke standardiserte protokoller for å oppnå pålitelige resultater i fysiologiske tester. I tillegg har vi målt laktatnivåer umiddelbart etter avslutningen av hver test for å vurdere den fysiologiske responsen. Tidligere forskning har vist at laktatnivåer kan gi verdifull informasjon om anaerob kapasitet og treningsintensitet, noe som er viktig for å forstå atletisk ytelse (@hopkins2000; @tanner2012). Ved å kontrollere for disse variablene håper vi å oppnå en høy grad av reproduserbarhet i våre resultater.
 
 I denne rapporten velger vi å fokusere på lakta-max og RER. Vi vil sammenlikne disse, regne ut standard avvik.
 
-## Protokoll
+# Protokoll
 
 Protokoll VO2maks-test
 
@@ -37,9 +35,9 @@ VO2maks-testen ble gjennomført som en trappetrinnstest der motstanden økte med
 
 Da en tydelig protokoll ble fulgt for å etterstrebe så sikre og reliable tester som mulig, er det flere forhold som må tas underveis. Matinntak og koffeininntak fra samme dag og kvelden før ble registrert ved første test, og skulle være likt ved de påfølgende testene. Trening dagen før test ble også registrert, men lyktes ikke i å reprodusere dette da trening dagen før test 2 ble gårsdagens VO2maks-test. Vi hadde også føringer om at man skulle etterstrebe lik søvn på dagene før test. For å sikre lik grad av formuleringer og verbal instruks samt grad av engasjement og heiing, hadde hver deltaker samme testleder ved hver test.
 
-# Protokoll
+## Protokoll
 
-### FØR TEST:
+### Før test:
 
 Starte laktatmaskin
 
@@ -57,7 +55,7 @@ Skru på Lode-sykkel.
 
 Skru på Vyntus og Lode PC
 
-### Kalibrere oksygenanalysator
+**Kalibrere oksygenanalysator**
 
 Gasskalibrering
 
@@ -79,7 +77,7 @@ Flytte sensor til kammer
 
 Skru av gass
 
-### forberede utstyr
+**Forberede utstyr**
 
 Lage ny pasient på Vyntus og Lode
 
@@ -119,7 +117,7 @@ Laktatmåling 1 min etter test – stikk i fingeren
 
 Vifte?
 
-### ETTER TEST:
+### Etter test:
 
 Avslutte test på begge PC
 
@@ -127,7 +125,7 @@ Spørre om Borg skala
 
 1 minutt etter endt test skal det tas laktat-prøve. Tok 2 prøver for å sikre god reliabilitet.
 
-### Hente rapport:
+**Hente rapport:**
 
 Rapport: INN_TABELL:30SEK_MIX
 
@@ -139,15 +137,15 @@ Lagre i rett mappe på minnepenn
 
 Overføre til One Drive på labbPCn
 
-### Standardisering:
+# Standardisering:
 
-Hva harvi standardisert?
+I dette forsøket valgte vi å standardisere matinntak og koffeininntak i forkant av testen. Vi ønsket at testdeltakerne skulle spise det samme de tre siste måltidene før testen, og ha likt koffeininntak samme dag som testen.
 
-START av test: husk labfrakk
+Vi kunne også ha valgt å standardisere trening, men på grunn av forskjellig treningsopplegg hos deltakerne lot ikke dette seg gjøre.
 
-Start vyntus 1 minutt før
+Standardisering av tidspunkt ble gjort for oss med reservasjon av laboratorium 2. Helt standardisert blir det likevel ikke fordi i testuke 1 er testdagene rett etter hverandre, mens i testuke to er det en hviledag mellom testene.
 
-## Resultater
+# Resultater
 
 ```{r}
 # Last inn nødvendige biblioteker
@@ -197,7 +195,7 @@ read_excel("data/g4.xlsx") %>%
 
 Tabell over deltakere
 
-# Tabell over demografiske variabler deltagerne. (n= antall deltagere).
+## Tabell over demografiske variabler deltagerne. (n= antall deltagere).
 
 ```{r}
 dat %>%
@@ -217,7 +215,7 @@ dat %>%
 
 ```
 
-# Tabell over demografiske variabler fordelt etter kjønn. (n= antall deltagere).
+## Tabell over demografiske variabler fordelt etter kjønn. (n= antall deltagere).
 
 ```{r}
 
@@ -239,9 +237,9 @@ dat %>%
 
 variasjon eller reliabilitetstallet til den la.max, så den rer.max. sammenlikne til slutt
 
-### Standard avvik:
+## Standard avvik:
 
-**laktat**
+### Laktat
 
 ```{r}
 
@@ -253,7 +251,7 @@ dat %>%
 
 ```
 
-**RER**
+### RER
 
 ```{r}
 
@@ -265,7 +263,7 @@ dat %>%
 
 ```
 
-**Graf over laktatmålingene**
+### Graf over laktatmålingene
 
 ```{r}
 #| code-fold: true
@@ -288,9 +286,8 @@ ggplot(data = dat,
 
 ```
 
-**Graf for RER-max**
+### Graf over RER-målingene
 
-```{r}
 ```{r}
 #| code-fold: true
 #| message: false
@@ -312,34 +309,9 @@ ggplot(data = dat,
 
 ```
 
-**Spredningsgraf for begge**
+# Utregning av variasjonskoeffisient
 
-```{r}
-#| echo: false
-#| warning: false
-#| message: false
-#| fig-cap: "Sammenhengen mellom Laktat.max og RER.max"
-
-
-ggplot(data = dat,
-       aes(x = la.max,
-           y = rer.max,
-           fill = group,
-           shape = group)) +
-  
-  geom_point() +
-  
-labs (x = "Laktat maks i (mmol)",
-      y = "RER maks",
-      title = "Sammenhengen mellom Laktat.max og RER.max"
-
-
-```
-
-
-## Utregning av variasjonskoeffisient
-
-###Laktat maks
+## Laktat maks
 
 ```{r}
 cv <- dat %>%
@@ -363,7 +335,7 @@ cv_percent <- round(cv$cv,1)
 
 Variasjonskoeffisienten for laktat maks var `r cv_percent`%
 
-### RER maks
+## RER maks
 
 ```{r}
 
@@ -387,9 +359,9 @@ cv_percent <- round(cv$cv,1)
 
 Variasjonskoeffisienten for RER maks var `r cv_percent`%
 
-## Avvik og feilkilder
+# Avvik og feilkilder
 
-### Standardisering
+## Standardisering
 
 **Livsstil**
 
@@ -427,4 +399,4 @@ På t4 manglet det også stoppeklokke på laboratoriumet. Vi løste dette med å
 
 I denne rapporten har vi også brukt data fra de andre gruppene i klassen vår. Dette gjør at vi har et bredere datautvalg som vi kan benytte oss av. Problemet med dette er at vi ikke har kontroll på andre gruppers protokoll, avvik, nøyaktighet osv. I datasettet var det for eksempel en plottefeil mellom rer.max og ve.max som vi ikke fikk endret på. Dette førte igjen til en feil i utregning av standard avvik, og at en eventuell tabell ikke ble brukbar.
 
-## Referanseliste
+# Referanseliste
