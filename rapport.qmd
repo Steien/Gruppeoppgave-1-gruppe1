@@ -311,7 +311,9 @@ ggplot(data = dat,
 
 ```
 
-## Pivoting and calculating typical error
+## Utregning av variasjonskoeffisient
+
+###Laktat maks
 
 ```{r}
 cv <- dat %>%
@@ -333,7 +335,31 @@ cv_percent <- round(cv$cv,1)
 
 ```
 
-Variasjonskoeffisienten var `r cv_percent`%
+Variasjonskoeffisienten for laktat maks var `r cv_percent`%
+
+### RER maks
+
+```{r}
+
+cv <- dat %>%
+  select(id, timepoint, rer.max) %>%
+  pivot_wider(names_from = timepoint, 
+              values_from = rer.max) %>%
+  
+  mutate(diff = t2 - t1) %>% # Change/difference score
+  summarise(m = mean(c(t1, t2), na.rm = TRUE), 
+            s = sd(diff, na.rm = TRUE),  # Summarize to calculate sd, and... 
+            te = s / sqrt(2), 
+            cv = 100 * (te/m)) 
+
+
+cv_percent <- round(cv$cv,1)
+
+
+
+```
+
+Variasjonskoeffisienten for RER maks var `r cv_percent`%
 
 ## Avvik og feilkilder
 
