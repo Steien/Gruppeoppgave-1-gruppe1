@@ -333,6 +333,7 @@ cv_percent <- round(cv$cv,1)
 
 ```
 
+Variasjonskoeffisienten var `r cv_percent`%
 
 ## Avvik og feilkilder
 
